@@ -1,6 +1,6 @@
 package com.litangwang.cn.metrics.config;
 
-import com.boluomi.sugar.metrics.interceptor.RequestTypeAnnotationHandlerInterceptor;
+import com.litangwang.cn.metrics.interceptor.RequestTypeAnnotationHandlerInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
