@@ -1,6 +1,6 @@
-package com.litangwang.cn.metrics;
+package com.litangwang.metrics;
 
-import com.litangwang.cn.metrics.helper.DataMetricsHelper;
+import com.litangwang.metrics.helper.DataMetricsHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.filter.OncePerRequestFilter;
 

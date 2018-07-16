@@ -1,4 +1,4 @@
-package com.litangwang.cn.metrics.annotation;
+package com.litangwang.metrics.annotation;
 
 
 import java.lang.annotation.ElementType;

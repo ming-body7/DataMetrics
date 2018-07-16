@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'application'
 apply plugin: 'maven'
 
-mainClassName = 'com.litangwang.cn.metrics'
+mainClassName = 'com.litangwang.metrics'
 
 group = 'com.github.ming-body7'
 version = '0.0.1-SNAPSHOT'

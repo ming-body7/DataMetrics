@@ -1,4 +1,4 @@
-package com.litangwang.cn.metrics;
+package com.litangwang.metrics;
 
 public interface DataMetricsWriter {
 

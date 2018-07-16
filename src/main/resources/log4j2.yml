@@ -1,0 +1,46 @@
+Configuration:
+  Properties:
+    Property:
+      name: log-path
+      value: "./log"
+  Appenders:
+    Console:
+      name: console
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+    RollingFile:
+      - name: application
+        filePattern: ${log-path}/application_log_%d{yyyy-MM-dd}.log
+        PatternLayout:
+          pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+        Policies:
+          OnStartupTriggeringPolicy: ""
+          TimeBasedTriggeringPolicy:
+            interval: 1
+            modulate: true
+
+      - name: data-log
+        filePattern: ${log-path}/data_log_%d{yyyy-MM-dd}.log
+        PatternLayout:
+          pattern: "%m%n"
+        Policies:
+          OnStartupTriggeringPolicy: ""
+          TimeBasedTriggeringPolicy:
+            interval: 1
+            modulate: true
+  Loggers:
+      Root:
+        level: info
+        AppenderRef:
+          - ref: console
+      Logger:
+        - name: com.litangwang.metrics
+          level: info
+          AppenderRef:
+            - ref: application
+        - name: com.litangwang.metrics.DataMetricsWriter
+          level: info
+          additivity: false
+          AppenderRef:
+            - ref: data-log

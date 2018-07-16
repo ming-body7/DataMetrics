@@ -1,4 +1,4 @@
-package com.litangwang.cn.metrics.helper;
+package com.litangwang.metrics.helper;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -1,7 +1,7 @@
-package com.litangwang.cn.metrics.interceptor;
+package com.litangwang.metrics.interceptor;
 
-import com.litangwang.cn.metrics.DataMetricsReporter;
-import com.litangwang.cn.metrics.annotation.RequestType;
+import com.litangwang.metrics.DataMetricsReporter;
+import com.litangwang.metrics.annotation.RequestType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
