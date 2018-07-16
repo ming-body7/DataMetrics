@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.litangwang.metrics.config.InterceptorConfig,\
+  com.litangwang.metrics.config.MetricsConfig
+
