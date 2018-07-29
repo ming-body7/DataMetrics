@@ -5,11 +5,13 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Component
+@RequestScope
 public class DataMetricsWriterImpl implements DataMetricsWriter {
 
     static Log log = LogFactory.getLog(DataMetricsWriter.class);

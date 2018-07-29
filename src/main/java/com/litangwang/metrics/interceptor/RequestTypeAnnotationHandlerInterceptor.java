@@ -17,9 +17,16 @@ public class RequestTypeAnnotationHandlerInterceptor extends HandlerInterceptorA
 
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) {
+        if (!(handler instanceof HandlerMethod)) {
+            return true;
+        }
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Method method = handlerMethod.getMethod();
         RequestType requestType = method.getAnnotation(RequestType.class);
+        if (requestType == null) {
+            return true;
+        }
+        this.dataMetricsReporter.enableReport();
         this.dataMetricsReporter.setRequestType(requestType.requestType());
         this.dataMetricsReporter.setSubRequestType(requestType.subRequestType());
         return true;

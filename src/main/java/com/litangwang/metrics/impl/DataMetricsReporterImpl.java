@@ -5,11 +5,13 @@ import com.litangwang.metrics.DataMetricsWriter;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Component
+@RequestScope
 public class DataMetricsReporterImpl implements DataMetricsReporter {
     public static final String REQUEST_TYPE = "requestType";
     public static final String SUB_REQUEST_TYPE = "subRequestType";
@@ -28,6 +30,8 @@ public class DataMetricsReporterImpl implements DataMetricsReporter {
     private static final String O_AUTH_ID = "oAuthID";
     private static final String APPLICATION_ID_INFO = "applicationIDInfo";
     private static final String INFOMATION = "information";
+
+    private boolean reportEnabled = false;
 
 
     String requestType;
@@ -65,6 +69,11 @@ public class DataMetricsReporterImpl implements DataMetricsReporter {
     @Autowired
     private DataMetricsWriter dataMetricsWriter;
 
+
+    @Override
+    public void enableReport() {
+        this.reportEnabled = true;
+    }
 
     @Override
     public void setRequestType(String requestType) {
@@ -137,6 +146,11 @@ public class DataMetricsReporterImpl implements DataMetricsReporter {
     }
 
     @Override
+    public void addApplicationID(String key, String value) {
+        this.applicationIDInfo.put(key, value);
+    }
+
+    @Override
     public void addToInformationLine(String key, String value) {
         this.informationMap.put(key, value);
     }
@@ -154,6 +168,9 @@ public class DataMetricsReporterImpl implements DataMetricsReporter {
     @Override
     public void report() {
 
+        if(!this.reportEnabled) {
+            return;
+        }
         dataMetricsWriter.addProperty(REQUEST_TYPE, requestType);
         dataMetricsWriter.addProperty(SUB_REQUEST_TYPE, subRequestType);
         dataMetricsWriter.addProperty(START_TIME, String.valueOf(startTime));

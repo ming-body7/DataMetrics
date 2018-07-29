@@ -2,6 +2,8 @@ package com.litangwang.metrics;
 
 public interface DataMetricsReporter {
 
+    public void enableReport();
+
     public void setRequestType(String requestType);
     public void setSubRequestType(String subRequestType);
     public void setUserID(String userID);
@@ -17,6 +19,13 @@ public interface DataMetricsReporter {
 
     public void setStartTime(Long startTime);
     public void setEndTime(Long endTime);
+
+    /**
+     * 用户Identity相关，例如微信ID等
+     * @param key
+     * @param value
+     */
+    public void addApplicationID(String key, String value);
 
     /**
      * 请求相关，需要专门收集的业务数据
