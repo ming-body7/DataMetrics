@@ -29,7 +29,8 @@ public class DataMetricsReporterImpl implements DataMetricsReporter {
     private static final String O_AUTH_TYPE = "oAuthType";
     private static final String O_AUTH_ID = "oAuthID";
     private static final String APPLICATION_ID_INFO = "applicationIDInfo";
-    private static final String INFOMATION = "information";
+    private static final String INFORMATION = "information";
+    private static final String COUNTS = "information";
 
     private boolean reportEnabled = false;
 
@@ -63,6 +64,10 @@ public class DataMetricsReporterImpl implements DataMetricsReporter {
      * performance data
      */
     Map<String, Long> times = new HashMap<>();
+
+    /**
+     * regular metrics
+     */
     Map<String, Integer> counts = new HashMap<>();
 
 
@@ -197,7 +202,8 @@ public class DataMetricsReporterImpl implements DataMetricsReporter {
         dataMetricsWriter.addProperty(O_AUTH_TYPE, oAuthType);
         dataMetricsWriter.addProperty(O_AUTH_ID, oAuthID);
         dataMetricsWriter.addProperty(APPLICATION_ID_INFO, new JSONObject(applicationIDInfo).toString());
-        dataMetricsWriter.addProperty(INFOMATION, new JSONObject(informationMap).toString());
+        dataMetricsWriter.addProperty(INFORMATION, new JSONObject(informationMap).toString());
+        dataMetricsWriter.addProperty(COUNTS, new JSONObject(counts).toString());
 
         //write to log
         dataMetricsWriter.write();
