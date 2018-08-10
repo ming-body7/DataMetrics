@@ -16,7 +16,8 @@ public interface DataMetricsReporter {
     public void setHttpReferer(String httpReferer);
     public void setQueryString(String queryString);
     public void setServerIP(String serverIP);
-
+    public void setOAuthType(String oAuthType);
+    public void setOAuthID(String oAuthID);
     public void setStartTime(Long startTime);
     public void setEndTime(Long endTime);
 

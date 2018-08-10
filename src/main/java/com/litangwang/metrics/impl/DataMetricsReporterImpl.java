@@ -131,6 +131,16 @@ public class DataMetricsReporterImpl implements DataMetricsReporter {
     }
 
     @Override
+    public void setOAuthType(String oAuthType) {
+        this.oAuthType = oAuthType;
+    }
+
+    @Override
+    public void setOAuthID(String oAuthID) {
+        this.oAuthID = oAuthID;
+    }
+
+    @Override
     public void setServerIP(String serverIP) {
         this.serverIP = serverIP;
     }
