@@ -30,7 +30,7 @@ public class DataMetricsReporterImpl implements DataMetricsReporter {
     private static final String O_AUTH_ID = "oAuthID";
     private static final String APPLICATION_ID_INFO = "applicationIDInfo";
     private static final String INFORMATION = "information";
-    private static final String COUNTS = "information";
+    private static final String COUNTS = "counts";
 
     private boolean reportEnabled = false;
 
